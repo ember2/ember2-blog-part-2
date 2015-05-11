@@ -26,13 +26,23 @@
 
         {{#if fullpost}}
             <h2>{{attrs.post.title}}</h2>
-            <p>{{attrs.post.text}}</p>
+            <p>{{break-lines attrs.post.text}}</p>
         {{else}}
             {{#link-to 'post' attrs.post}}
                 <h2>{{attrs.post.title}}</h2>
-                <p>{{this.summary}}</p>
+                <p>{{break-lines this.summary}}</p>
             {{/link-to}}
         {{/if}}
+
+        <p class="pull-right mtm3">
+            {{#if fullpost}}
+                <button class="pull-right" {{action 'edit'}}>Edit</button>
+            {{else}}
+                {{#link-to 'post' attrs.post}}
+                    <button class="pull-right">Read More</button>
+                {{/link-to}}
+            {{/if}}
+        </p>
 
         <em>
             {{#if attrs.post.updatedDate}}
@@ -43,16 +53,6 @@
 
             by {{attrs.post.author}}
         </em>
-
-        <p>
-            {{#if fullpost}}
-                <button class="pull-right" {{action 'edit'}}>Edit</button>
-            {{else}}
-                {{#link-to 'post' attrs.post}}
-                    <button class="pull-right">Read More</button>
-                {{/link-to}}
-            {{/if}}
-        </p>
 
     {{/if}}
 
