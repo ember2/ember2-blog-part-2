@@ -54,16 +54,52 @@ a:hover {
 .menu {
   margin-top: 28px;
 }
-.menu a {
+button, .menu a {
   font-family: Lato, sans-serif;
   border: 1px solid #c0392b;
   text-decoration: none;
   border-radius: 18px;
   padding: 7px 32px;
+  background: #fff;
+  color: #c0392b;
+}
+.menu a {
   margin: 10px;
 }
-.menu a:hover {
+button:last-of-type,
+.menu a:last-of-type {
+  margin-right: 0;
+}
+button:hover,
+.menu a:hover{
   border-color: #e74c3c;
   color: #fff;
   background-color: #e74c3c;
+}
+textarea:focus, input:focus, button:focus {
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input[type=text], textarea {
+  width: calc(100% - 5px);
+  font-size: 0.75em;
+  padding: 10px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+textarea {
+  margin-top: 10px;
+}
+label {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+#NewPost input,
+#NewPost textarea {
+  width: calc(100% - 23px);
 }

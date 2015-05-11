@@ -1,8 +1,52 @@
 <article>
+
+    {{#if isEditing}}
+        <h4>
+            <em>Editing {{attrs.post.title}}</em>
+        </h4>
+        <br>
+        <p>
+            <label for="edit_post_title">Title:</label>
+            {{input value=attrs.post.title id="edit_post_title" placeholder="Title"}}
+        </p>
+        <p>
+            <label for="edit_post_author">Author:</label>
+            {{input value=attrs.post.author id="edit_post_author" placeholder="Author"}}
+        </p>
+        <p>
+            <label for="edit_post_text">Text:</label>
+            {{textarea value=attrs.post.text id="edit_post_text" placeholder="Content" rows="10"}}
+        </p>
+        <p class="pull-right">
+            <button {{action "rollback" post}}>Cancel</button>
+            <button {{action "updatePost" post}}>Update</button>
+        </p>
+
+    {{else}}
+
+        <h2>{{attrs.post.title}}</h2>
+        <p>{{attrs.post.text}}</p>
+
+        <em>
+            {{#if attrs.post.updatedDate}}
+                Updated on {{moment attrs.post.updatedDate 'LLLL'}}
+            {{else}}
+                Posted on {{moment attrs.post.createdDate 'LLLL'}}
+            {{/if}}
+
+            by {{attrs.post.author}}
+        </em>
+
+        <p>
+            <button class="pull-right" {{action 'edit'}}>Edit</button>
+        </p>
+
+    {{/if}}
+
     <br>
-    <h2>{{attrs.post.title}}</h2>
-    <p>{{attrs.post.text}}</p>
-    <i>(Posted on {{attrs.post.createdDate}} by {{attrs.post.author}})</i>
-    <br><br><br>
+    <br>
+    <br>
+
     <hr>
+
 </article>

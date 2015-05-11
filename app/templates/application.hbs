@@ -1,7 +1,13 @@
 <div class="menu pull-right">
     {{#link-to 'about'}}About{{/link-to}}
-    {{#link-to 'index'}}Blog{{/link-to}}
+    {{#link-to 'new'}}New Post{{/link-to}}
 </div>
-<h1 id="title">My Ember 2.0 Blog</h1>
+{{#link-to 'index'}}
+    <h1 id="title">My Ember 2.0 Blog</h1>
+{{/link-to}}
 
 {{outlet}}
+
+<p>
+    Portions Copyright &copy; 2015 Ember2. All Rights Reserved.
+</p>
