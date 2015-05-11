@@ -103,3 +103,8 @@ label {
 #NewPost textarea {
   width: calc(100% - 23px);
 }
+
+article > a {
+  color: #000;
+  text-decoration: none;
+}
